@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/output.css">
+    <link rel="stylesheet" href="weather.css">
+    <link rel="shortcut icon" href="weatherfav.png" type="image/x-icon">
+    <title>Weather Application</title>
+</head>
+<body class="bg-sky-700">
+    <h1 class="text-2xl font-extrabold text-orange-500 text-center">Welcome to the Weather App to check the weather conditions before moving </h1>
+    <script>
+
+        window.onload= load;
+
+        function load() {
+            navigator.geolocation.getCurrentPosition(showposition);
+        }
+        function showposition(data){
+            console.dir(data);
+            console.log(data.coords);
+            
+        }
+    </script>
+
+    <script src="weather.js"></script>
+</body>
+</html>
