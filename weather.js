@@ -11,7 +11,7 @@ document.getElementById("Weatherinfo").addEventListener("click", function (e) {
   document.getElementById('geo_loc').style.display="none"
   document.getElementById('citycurr').style.display="none"
   document.getElementById('Weatherinfo').style.display="none" 
-  
+  document.getElementById('Clear').classList.toggle("search");
   CurrentForecast();
   document.getElementById('citycurr').addEventListener("beforeinput",function(){window.location.reload()})
 },{once:true});
