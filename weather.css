@@ -1,0 +1,95 @@
+body{
+    background-image: url("weatherpic.jpg");
+    background-size: cover;
+    position: absolute;
+    
+}
+
+
+#div2{
+position: relative;
+justify-items: left;
+left:50px;
+top:100px;
+width: 200px;
+color: rgb(197, 135, 197);
+background-color: rgb(11, 11, 206);
+}
+
+section{
+    position: absolute;
+    display: flex;
+    /* flex-grow: 1; */
+    left:300px;
+    top:110px;
+    /* bottom: 10px; */
+    width: 900px;
+    color:rgb(255, 251, 0);
+    font-size:medium;
+    border-radius: 25px;
+    /* background-color: purple; */
+    }
+     
+li{
+    font-size:medium;
+    /*color: brown;*/   
+} 
+
+div{
+    
+    padding-right: 30px;
+}
+
+#div1{
+    position: relative;
+    top: 80px;
+    width: 250px;  
+    left:310px;
+    color: rgb(255, 0, 0);
+    font-size: large;
+    background-color: slateblue;
+    border-radius: 25px;
+    text-align: center;
+    }
+#time{
+    right: 0px;
+    position: fixed;
+    display: inline;
+    color: greenyellow;
+    font-size: medium;
+}   
+
+#cityName {
+
+    /* left: 0px;
+    top: 0px; */
+    position: relative;
+    
+    color: rgb(255, 47, 47);
+    font-size: medium;
+}
+    
+#div9{
+    top: 80px;
+    left:900px;
+    position: absolute;
+    color: yellow;
+    font-size: large;
+}
+
+.search{
+display: none;
+}
+
+.search1 
+{
+background-color: rgba(231, 155, 12, 0.993); 
+border: 4px;
+border-color: crimson;
+border-radius: 25px;   
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+font-size: larger;
+font-weight: 800;
+font-style: italic;
+
+}    

@@ -1,29 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/src/output.css">
-    <link rel="stylesheet" href="weather.css">
-    <link rel="shortcut icon" href="weatherfav.png" type="image/x-icon">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/output.css" />
+    <link rel="stylesheet" href="weather.css" />
+    <link rel="shortcut icon" href="weatherfav.png" type="image/x-icon" />
     <title>Weather Application</title>
-</head>
-<body class="bg-sky-700">
-    <h1 class="text-2xl font-extrabold text-orange-500 text-center">Welcome to the Weather App to check the weather conditions before moving </h1>
-    <script>
+  </head>
+  <body class="bg-sky-400">
+    
+    <h1 class="text-4xl font-extrabold text-orange-500 text-center top-0 left-96 fixed ">
+      <img src="logo1.jpeg" alt="" class="fixed top-0 left-0 w-20 h-14">
+      Welcome to the Weather App   <div id="time" style="font-size: x-large;"></div>
+        
+      
+    </h1>
+    
+    <div  class="flex justify-center mt-10 left-96 fixed">
+      
+      <input
+        class="bg-slate-500 rounded-md"
+        type="text"
+        name="city"
+        id="citycurr"
+        
+        placeholder="Enter City Name"
+      />
+      <img src="loc_button.png" id="geo_loc" height="5px" width="30px">
+      <button
+       type="button"
+        value="submit"
+        id="Weatherinfo"
+        class="border-2 rounded-2xl border-purple-950 bg-green-600 w-fit" 
+      >
+        Search city
+      </button>
+      <button type="button" value="submit" class="search search1" id="Clear" >Search Again </button>
+    
+    </div>
 
-        window.onload= load;
-
-        function load() {
-            navigator.geolocation.getCurrentPosition(showposition);
-        }
-        function showposition(data){
-            console.dir(data);
-            console.log(data.coords);
-            
-        }
-    </script>
-
+    <article class="w-screen h-screen">
+      <div id="div1"> </div>
+     <div id="div2"></div>
+    
+     <section >
+       
+        <div class="forecast" id="div3" align="center">
+          <li type="none"></li>
+        </div>
+        <div class="forecast" id="div4">
+          <li type="none"></li>
+        </div>
+        <div  class="forecast" id="div5" >
+          <li type="none"></li>
+        </div>
+        <div class="forecast" id="div6"></div>
+      <div class="forecast" id="div7"></div>
+      <div class="forecast" id="div8"></div>
+      </section>
+    </article>
+    <article id="sec2">
+      
+    </article>
     <script src="weather.js"></script>
-</body>
+  </body>
 </html>
