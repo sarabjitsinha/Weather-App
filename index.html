@@ -8,60 +8,53 @@
     <link rel="shortcut icon" href="weatherfav.png" type="image/x-icon" />
     <title>Weather Application</title>
   </head>
-  <body class="bg-sky-400">
+  <body class="bg-sky-500">
+    <div class="flex text-4xl font-extrabold text-orange-500 justify-center" >
+        Welcome to the Weather App</div>
+      <div id="time" class="relative flex justify-end text-xl text-fuchsia-800"></div>
     
-    <h1 class="text-4xl font-extrabold text-orange-500 text-center top-0 left-96 fixed ">
-      <img src="logo1.jpeg" alt="" class="fixed top-0 left-0 w-20 h-14">
-      Welcome to the Weather App   <div id="time" style="font-size: x-large;"></div>
-        
-      
-    </h1>
-    
-    <div  class="flex justify-center mt-10 left-96 fixed">
-      
+    <div class="flex justify-center ">
       <input
         class="bg-slate-500 rounded-md"
         type="text"
         name="city"
         id="citycurr"
-        
         placeholder="Enter City Name"
       />
-      <img src="loc_button.png" id="geo_loc" height="5px" width="30px">
+      <img src="loc_button.png" id="geo_loc" height="5px" width="30px" />
       <button
-       type="button"
+        type="button"
         value="submit"
         id="Weatherinfo"
-        class="border-2 rounded-2xl border-purple-950 bg-green-600 w-fit" 
+        class="border-2 rounded-2xl border-purple-950 bg-green-600 w-fit"
       >
         Search city
       </button>
-      <button type="button" value="submit" class="search search1" id="Clear" >Search Again </button>
-    
+      <button type="button" value="submit" class="search search1" id="Clear">
+        Search Again
+      </button>
     </div>
-
-    <article class="w-screen h-screen">
-      <div id="div1"> </div>
-     <div id="div2"></div>
-    
-     <section >
-       
-        <div class="forecast" id="div3" align="center">
+    <article class="flex flex-wrap ml-5">
+    <article>
+      <div id="div2" class="flex justify-center items-center mb-2 mt-2 p-5 justify-self-center relative text-2xl text-orange-800"></div>
+      <div id="div1" ></div>
+      <article>
+      <section>
+        
+        <div class="forecast" id="div3">
           <li type="none"></li>
         </div>
         <div class="forecast" id="div4">
           <li type="none"></li>
         </div>
-        <div  class="forecast" id="div5" >
+        <div class="forecast" id="div5">
           <li type="none"></li>
         </div>
-        <div class="forecast" id="div6"></div>
-      <div class="forecast" id="div7"></div>
-      <div class="forecast" id="div8"></div>
+        <div class="forecast search" id="div6"></div>
+        <div class="forecast search" id="div7"></div>
+        <div class="forecast search" id="div8"></div>
       </section>
-    </article>
-    <article id="sec2">
-      
+    
     </article>
     <script src="weather.js"></script>
   </body>
