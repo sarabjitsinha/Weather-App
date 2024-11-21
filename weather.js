@@ -1,4 +1,4 @@
-let er_al;
+
 //Creating Timer Function
 setInterval(showTime, 1000);
 function showTime () {
@@ -16,12 +16,7 @@ document.getElementById('Weatherinfo').addEventListener(
     document.getElementById('citycurr').style.display = 'none'
     document.getElementById('Weatherinfo').style.display = 'none'
     document.getElementById('Clear').classList.toggle('search')
-    document.getElementById('div6').classList.toggle('search')  
-    document.getElementById('div7').classList.toggle('search') 
-    document.getElementById('div8').classList.toggle('search') 
-    document.getElementById('div6').style.backgroundColor="blueviolet"
-    document.getElementById('div7').style.backgroundColor="blueviolet"
-    document.getElementById('div8').style.backgroundColor="blueviolet"
+    document.querySelector('.fun').classList.toggle('search')
     CurrentForecast()
     document
       .getElementById('citycurr')
@@ -41,7 +36,6 @@ function CurrentForecast (possll=0) {
       const CityVal = document.querySelector('input')
       let CityName = CityVal.value
       let apilink
-      console.log(CityName)
       
        if (possll!=0 )  {
         CityName = possll
@@ -50,13 +44,10 @@ function CurrentForecast (possll=0) {
         document.getElementById('Weatherinfo').style.display = 'none'
         document.getElementById('geo_loc').style.display = 'none'
         document.getElementById('Clear').classList.toggle('search')
-        document.getElementById('div6').classList.toggle('search')  
-        document.getElementById('div7').classList.toggle('search') 
-        document.getElementById('div8').classList.toggle('search')
-        document.getElementById('div6').style.backgroundColor="blueviolet"
-        document.getElementById('div7').style.backgroundColor="blueviolet"
-        document.getElementById('div8').style.backgroundColor="blueviolet"
-      } else {
+        document.querySelector('.fun').classList.toggle('search')
+      }
+       else 
+       {
         apilink = `http://api.weatherapi.com/v1/current.json?key=${Apikey}&q=${CityName}&aqi=yes`
       }
       
@@ -101,14 +92,8 @@ function CurrentForecast (possll=0) {
             )
         })
         .catch(err =>{ 
-          // document.getElementById('Clear').classList.toggle('search')
-          alert("here is the error")
-          document.getElementById('div6').classList.toggle('search')  
-        document.getElementById('div7').classList.toggle('search') 
-        document.getElementById('div8').classList.toggle('search')
-        // document.getElementById('div6').style.backgroundColor="none"
-        // document.getElementById('div7').style.backgroundColor="none"
-        // document.getElementById('div8').style.backgroundColor="none"
+          reject(err)
+          document.querySelector('.fun').classList.toggle('search')
         })
           WeatherForecast(Apikey, CityName);     
     }); 
@@ -138,6 +123,12 @@ function WeatherForecast (Apikey, CityName) {
     .then(SuccessData => {
       document.getElementById('div1').style.backgroundColor="lime"
       document.getElementById('div1').innerHTML = 'Forecast for next 3 days'
+      document.getElementById('div6').classList.toggle('search')  
+    document.getElementById('div7').classList.toggle('search') 
+    document.getElementById('div8').classList.toggle('search') 
+    document.getElementById('div6').style.backgroundColor="indigo"
+    document.getElementById('div7').style.backgroundColor="indigo"
+    document.getElementById('div8').style.backgroundColor="indigo"  
       let countFd = SuccessData.forecast.forecastday.length
       let ForecastObj = SuccessData.forecast.forecastday
       let Forecast24hour
@@ -145,7 +136,7 @@ function WeatherForecast (Apikey, CityName) {
       let num1 = 6
       for (let sd = 0; sd < countFd; sd++) {
         document.querySelector(`#div${num}`).style="border:2px solid orange;"
-         document.querySelector(`#div${num}`).style.backgroundColor="blueviolet"
+         document.querySelector(`#div${num}`).style.backgroundColor="darkslateblue"
         let FirstDay = SuccessData.forecast.forecastday[sd].date
         let ForeCondition =
           SuccessData.forecast.forecastday[sd].day.condition.text
@@ -185,7 +176,7 @@ function WeatherForecast (Apikey, CityName) {
               .querySelector(`#div${num1}`)
               .insertAdjacentHTML(
                 'beforeend',
-                `<li type="none">Date/Time: ${Forecast24hour[frct].time}</li>`
+                `<li type="none"><span style="color:magenta;">Date/Time:</span> ${Forecast24hour[frct].time}</li>`
               )
             document
               .querySelector(`#div${num1}`)
@@ -200,13 +191,13 @@ function WeatherForecast (Apikey, CityName) {
               .querySelector(`#div${num1}`)
               .insertAdjacentHTML(
                 'beforeend',
-                `<li type="none">Temp: ${Forecast24hour[frct].temp_c}<sup>o</sup>c</li>`
+                `<li type="none"><span style="color:yellowgreen;"> Temp:</span> ${Forecast24hour[frct].temp_c}<sup>o</sup>c</li>`
               )
             document
               .querySelector(`#div${num1}`)
               .insertAdjacentHTML(
                 'beforeend',
-                `<li type="none">Rain: ${Forecast24hour[frct].chance_of_rain} % chance</li>`
+                `<li type="none"><span style="color:tan;">Rain:</span> ${Forecast24hour[frct].chance_of_rain} % chance</li>`
               )
           }
         }
@@ -237,7 +228,6 @@ document.getElementById('geo_loc').addEventListener(
       let long = position.coords.longitude
       let possll = lat + ',' + long
       CurrentForecast(possll)
-      console.log(position)
     }
   },
   { once: true }
